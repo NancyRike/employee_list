@@ -23,49 +23,52 @@ fetch(url)
       append(ul, li);
 
     })
-    var save_local = {Name, salary, Age}
-    localStorage.setItem('the_value',JSON.stringify(save_local));
-    var save_local = JSON.parse(localStorage.getItem("the_value"));
-
+  //   var save_local = {Name, salary, Age}
+  //   localStorage.setItem('the_value',JSON.stringify(save_local));
+  //   var save_local = JSON.parse(localStorage.getItem("the_value"));
+  //
   })
   .catch(function (error) {
     console.log(error);
 
   })
-var postform = document.getElementById('postform');
-postform.addEventListener('submit', function(e){
-  e.preventDefault();
-  var formData =  new FormData(this);
-
-  fetch('http://dummy.restapiexample.com/api/v1/create',{
-    Method : 'post',
-    body : 'formData',
-  })
-  .then(function (response) {
-    return response.text
-  })
-  .then(function (text) {
-    console.log(text);
-
-  })
-  .catch(function (error) {
-
-  });
-});
-// }
-// var user = {
-//   'name' : " ",
-//   'salary': " ",
-//   'age': " ",
-// };
-// var request = new Request (url, {
-//   Method: 'POST',
-//   body: JSON.stringify(user),
-//   headers : ({
-//     'Content-Type': 'application/json'
-//     })
-// })
+// var postform = document.getElementById('postform');
+// postform.addEventListener('submit', function(e){
+//   e.preventDefault();
+//   var formData =  new FormData(this);
 //
-// fetch (request)
-//     .then(response => response.json())
-//     .then(response => console.log(response));
+//   fetch('http://dummy.restapiexample.com/api/v1/create',{
+//     Method : 'post',
+//     body : 'formData',
+//   })
+//   .then(function (response) {
+//     return response.text
+//   })
+//   .then(function (text) {
+//     console.log(text);
+//
+//   })
+//
+// });
+// }
+var user = {
+  'name' : "madeline",
+  'salary': "$2000",
+  'age': "5yrs",
+};
+fetch('http://dummy.restapiexample.com/api/v1/create',{
+  method: 'POST',
+  headers : {
+    'Content-Type': 'application/json'
+  },
+    body: JSON.stringify(user)
+})
+.then(response => response.json())
+// .then(user => {
+.then(response => console.log(response))
+  // console.log(response);
+  // console.log('success:', response);
+// })
+.catch((error)  => {
+  console.error('Error:', error);
+  });
